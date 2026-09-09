@@ -1,0 +1,335 @@
+<!--
+  WHAT'S STILL A PLACEHOLDER (search for "TODO"):
+  1. Social links
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>August Hickey — Jazz Saxophone | Missoula, MT</title>
+<meta name="description" content="August Hickey is a Missoula, MT saxophonist playing weddings, restaurants, and private events, plus one-on-one saxophone lessons for players of every level.">
+<meta property="og:title" content="August Hickey — Jazz Saxophone">
+<meta property="og:description" content="Missoula-based sax for weddings and events, plus lessons — book a time and pay right on the site.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/august-portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14151A;
+    --ink-2:#1E1A16;
+    --brass:#C9A24B;
+    --ember:#B1502E;
+    --ivory:#EDE6D8;
+    --fog:#9098A3;
+    --line: rgba(237,230,216,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--ivory);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+  section{padding:110px 0;}
+  @media(max-width:700px){ section{padding:72px 0;} .wrap{padding:0 22px;} }
+
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(20,21,26,0.86);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1080px; margin:0 auto; padding:18px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .mark{font-family:'Fraunces',serif; font-size:1.15rem; font-weight:600;}
+  .nav-links{display:flex; gap:34px; font-size:0.95rem; color:var(--fog);}
+  .nav-links a:hover{color:var(--ivory);}
+  .nav-cta{
+    border:1px solid var(--brass); color:var(--brass);
+    padding:8px 18px; border-radius:2px; font-size:0.9rem;
+    transition:background 0.15s, color 0.15s;
+  }
+  .nav-cta:hover{background:var(--brass); color:var(--ink);}
+  .nav-toggle{display:none; background:none; border:none; color:var(--ivory); font-size:1.4rem;}
+  @media(max-width:700px){
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  .hero{
+    padding:190px 0 100px;
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media(max-width:800px){ .hero{grid-template-columns:1fr; padding:150px 0 60px;} .hero-art{order:-1; max-width:220px; margin:0 auto 20px;} }
+  .hero-kicker{color:var(--brass); font-size:0.95rem; margin-bottom:18px; display:block;}
+  .hero h1{font-size:clamp(2.6rem, 6vw, 4.4rem); margin-bottom:22px;}
+  .hero p.lede{color:var(--fog); font-size:1.15rem; max-width:520px; margin-bottom:36px;}
+  .btn-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:14px 26px; border-radius:2px;
+    font-size:0.98rem; font-weight:500; transition:transform 0.15s, background 0.15s;
+  }
+  .btn-primary{background:var(--brass); color:var(--ink);}
+  .btn-primary:hover{transform:translateY(-1px); background:#dcb75c;}
+  .btn-ghost{border:1px solid var(--line); color:var(--ivory);}
+  .btn-ghost:hover{border-color:var(--brass); color:var(--brass);}
+
+  .hero-art svg{width:100%; height:auto; opacity:0.9;}
+
+  .section-head{margin-bottom:48px; max-width:600px;}
+  .section-head h2{font-size:clamp(1.8rem, 3.4vw, 2.5rem); margin-bottom:14px;}
+  .section-head p{color:var(--fog);}
+
+  .alt{background:var(--ink-2);}
+
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start;}
+  @media(max-width:750px){ .about-grid{grid-template-columns:1fr;} }
+  .photo-box{
+    aspect-ratio:4/5; border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .photo-box img{width:100%; height:100%; object-fit:cover; display:block;}
+  .about-copy p{margin-bottom:18px; color:#DAD3C4;}
+  .credit-list{list-style:none; margin-top:26px; padding-top:26px; border-top:1px solid var(--line);}
+  .credit-list li{
+    display:flex; justify-content:space-between; padding:10px 0;
+    border-bottom:1px solid var(--line); color:var(--fog); font-size:0.95rem;
+  }
+  .credit-list li span:last-child{color:var(--ivory);}
+
+  .live-photo{
+    aspect-ratio:4/3; border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .live-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+
+  .lesson-list{border-top:1px solid var(--line);}
+  .lesson-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:26px 0; border-bottom:1px solid var(--line); gap:20px;
+  }
+  .lesson-row h3{font-size:1.25rem; font-weight:500;}
+  .lesson-row .desc{color:var(--fog); font-size:0.95rem; margin-top:6px; max-width:420px;}
+  .lesson-row .price{font-family:'Fraunces',serif; color:var(--brass); font-size:1.2rem; white-space:nowrap;}
+  .lesson-tabs{display:flex; gap:12px; margin-top:48px; margin-bottom:0;}
+  .tab-btn{
+    background:none; border:1px solid var(--line); color:var(--fog);
+    padding:12px 22px; font-family:'Inter',sans-serif; font-size:0.92rem;
+    cursor:pointer; border-radius:2px; transition:border-color 0.15s, color 0.15s;
+  }
+  .tab-btn.active{border-color:var(--brass); color:var(--brass);}
+  .cal-panel{display:none; border:1px solid var(--line); border-top:none;}
+  .cal-panel.active{display:block;}
+
+  .book-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  @media(max-width:750px){ .book-grid{grid-template-columns:1fr;} }
+  .book-copy p{color:#DAD3C4; margin-bottom:24px;}
+
+  footer{border-top:1px solid var(--line); padding:56px 0;}
+  .footer-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; align-items:center;}
+  .footer-grid .mark{display:block; margin-bottom:6px;}
+  .footer-grid .loc{color:var(--fog); font-size:0.9rem;}
+  .social-links{display:flex; gap:22px; font-size:0.9rem; color:var(--fog);}
+  .social-links a:hover{color:var(--brass);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="mark">August Hickey</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#teaching">Lessons</a>
+      <a href="#book">Book</a>
+    </div>
+    <a href="#book" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<div id="top" class="wrap hero">
+  <div>
+    <span class="hero-kicker">Missoula-based saxophone performance and lessons</span>
+    <h1>August Hickey, saxophonist.</h1>
+    <p class="lede">Music for weddings, restaurants, and private events around Missoula, plus lessons for players of every level.</p>
+    <div class="btn-row">
+      <a href="#book" class="btn btn-primary">Book a performance</a>
+      <a href="#teaching" class="btn btn-ghost">Book a lesson</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <svg viewBox="0 0 200 340" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#C9A24B" stroke-width="2">
+      <path d="M90 20 L90 60"/>
+      <ellipse cx="90" cy="14" rx="10" ry="8"/>
+      <path d="M90 60 C 60 70, 55 100, 60 140 C 64 175, 90 190, 100 220 C 112 255, 95 285, 60 285 C 35 285, 22 265, 25 245"/>
+      <ellipse cx="34" cy="252" rx="18" ry="24" transform="rotate(-20 34 252)"/>
+      <circle cx="75" cy="95" r="6"/>
+      <circle cx="80" cy="120" r="6"/>
+      <circle cx="82" cy="146" r="6"/>
+      <circle cx="90" cy="170" r="6"/>
+      <circle cx="98" cy="192" r="6"/>
+      <path d="M90 40 L60 46" stroke-width="1.4" opacity="0.6"/>
+      <path d="M62 46 L58 90" stroke-width="1.4" opacity="0.6"/>
+    </svg>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="photo-box"><img src="images/august-portrait.jpg" alt="August Hickey playing tenor saxophone"></div>
+    <div class="about-copy">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <p>
+        August Hickey plays saxophone regularly at venues around Missoula, and has
+        also spent time in New York playing local gigs. His background includes
+        performing at festivals and attending the Eastman School of Music. He
+        performs at weddings, restaurants, bars, and private events.
+      </p>
+      <p>
+        August also teaches private saxophone lessons and leads jazz combos. His
+        students range from complete beginners to advanced jazz improvisers. Lessons
+        are available in person and online, and are adjusted to fit each student's
+        level and goals.
+      </p>
+      <ul class="credit-list">
+        <li><span>Based in</span><span>Missoula, MT</span></li>
+        <li><span>Instruments</span><span>Saxophone, flute, clarinet</span></li>
+        <li><span>Available for</span><span>Weddings, F&B venues, private events</span></li>
+        <li><span>Teaching</span><span>Beginner to advanced, in person & online</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="teaching">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Lessons</h2>
+      <p>Pick a length below and grab a real open slot on August's calendar, payment is handled right here, no back and forth required.</p>
+    </div>
+    <div class="lesson-list">
+      <div class="lesson-row">
+        <div>
+          <h3>30-minute lesson</h3>
+          <div class="desc">A shorter session for focused work on technique, repertoire, and improvisation.</div>
+        </div>
+        <div class="price">$35</div>
+      </div>
+      <div class="lesson-row">
+        <div>
+          <h3>60-minute lesson</h3>
+          <div class="desc">A full hour for deeper work on technique, repertoire, and improvisation.</div>
+        </div>
+        <div class="price">$55</div>
+      </div>
+    </div>
+
+    <div class="lesson-tabs">
+      <button class="tab-btn active" data-target="cal-30">Book a 30-minute lesson</button>
+      <button class="tab-btn" data-target="cal-60">Book a 60-minute lesson</button>
+    </div>
+
+    <div id="cal-30" class="cal-panel active">
+      <!-- Cal inline embed: 30-minute lesson -->
+      <div style="width:100%;height:650px;overflow:scroll" id="my-cal-inline-30-minute-lesson"></div>
+      <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "30-minute-lesson", {origin:"https://app.cal.com"});
+        Cal.config = Cal.config || {};
+        Cal.config.forwardQueryParams = true;
+        Cal.ns["30-minute-lesson"]("inline", {
+          elementOrSelector:"#my-cal-inline-30-minute-lesson",
+          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+          calLink: "augusthickeymusic/30-minute-lesson",
+        });
+        Cal.ns["30-minute-lesson"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+      </script>
+    </div>
+
+    <div id="cal-60" class="cal-panel">
+      <!-- Cal inline embed: 60-minute lesson -->
+      <div style="width:100%;height:650px;overflow:scroll" id="my-cal-inline-60-minute-lesson"></div>
+      <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "60-minute-lesson", {origin:"https://app.cal.com"});
+        Cal.config = Cal.config || {};
+        Cal.config.forwardQueryParams = true;
+        Cal.ns["60-minute-lesson"]("inline", {
+          elementOrSelector:"#my-cal-inline-60-minute-lesson",
+          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+          calLink: "augusthickeymusic/60-minute-lesson",
+        });
+        Cal.ns["60-minute-lesson"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+      </script>
+    </div>
+  </div>
+</section>
+
+<section id="book" class="alt">
+  <div class="wrap book-grid">
+    <div class="book-copy">
+      <div class="section-head">
+        <h2>Book August for your event</h2>
+        <p>Weddings, restaurants, bars, and private parties. Flexible for most venue types and sizes.</p>
+      </div>
+      <p>
+        Sets usually run about 2 hours and can be adjusted to fit the venue, from
+        a full band setup to a smaller stripped down group. Send a note with your
+        date and event details, and he will follow up with availability and pricing.
+      </p>
+      <a href="mailto:missoulagus@gmail.com" class="btn btn-primary">Email August to book</a>
+    </div>
+    <div class="live-photo">
+      <img src="images/august-live-band.jpg" alt="August Hickey performing live with his band">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <span class="mark">August Hickey</span>
+      <span class="loc">Missoula, MT · missoulagus@gmail.com</span>
+    </div>
+    <div class="social-links">
+      <a href="https://instagram.com/augusthickey406" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.cal-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.target).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
